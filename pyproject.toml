@@ -43,17 +43,41 @@ where = ["src"]
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+exclude = ["notebooks"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP", "SIM"]
 ignore = []
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
 strict = true
 warn_return_any = true
 warn_unused_configs = true
 mypy_path = "src"
+ignore_missing_imports = true
+follow_imports = "silent"
+disallow_untyped_decorators = false
+
+[[tool.mypy.overrides]]
+module = [
+  "fastapi",
+  "fastapi.*",
+  "langchain_core",
+  "langchain_core.*",
+  "langgraph",
+  "langgraph.*",
+  "langsmith",
+  "langsmith.*",
+  "openai",
+  "openai.*",
+  "starlette",
+  "starlette.*",
+  "uvicorn",
+  "uvicorn.*",
+]
+follow_imports = "skip"
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

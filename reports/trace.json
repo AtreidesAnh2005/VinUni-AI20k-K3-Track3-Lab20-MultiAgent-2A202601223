@@ -1,0 +1,154 @@
+{
+  "query": "Research GraphRAG state-of-the-art",
+  "iterations": 4,
+  "route_history": [
+    "researcher",
+    "analyst",
+    "writer",
+    "done"
+  ],
+  "errors": [],
+  "trace": [
+    {
+      "name": "supervisor.route",
+      "payload": {
+        "next_route": "researcher",
+        "iteration": 1,
+        "has_sources": false,
+        "has_analysis": false,
+        "has_answer": false
+      }
+    },
+    {
+      "name": "workflow.step",
+      "payload": {
+        "agent": "supervisor",
+        "duration_seconds": 4.8900008550845087e-05,
+        "status": "success"
+      }
+    },
+    {
+      "name": "researcher.done",
+      "payload": {
+        "num_sources": 5
+      }
+    },
+    {
+      "name": "workflow.step",
+      "payload": {
+        "agent": "researcher",
+        "duration_seconds": 0.025584200004232116,
+        "status": "success"
+      }
+    },
+    {
+      "name": "supervisor.route",
+      "payload": {
+        "next_route": "analyst",
+        "iteration": 2,
+        "has_sources": true,
+        "has_analysis": false,
+        "has_answer": false
+      }
+    },
+    {
+      "name": "workflow.step",
+      "payload": {
+        "agent": "supervisor",
+        "duration_seconds": 2.339998900424689e-05,
+        "status": "success"
+      }
+    },
+    {
+      "name": "analyst.done",
+      "payload": {
+        "metadata": {
+          "input_tokens": 431,
+          "output_tokens": 135,
+          "cost_usd": 0.00014565
+        },
+        "notes_len": 543
+      }
+    },
+    {
+      "name": "workflow.step",
+      "payload": {
+        "agent": "analyst",
+        "duration_seconds": 3.880000440403819e-05,
+        "status": "success"
+      }
+    },
+    {
+      "name": "supervisor.route",
+      "payload": {
+        "next_route": "writer",
+        "iteration": 3,
+        "has_sources": true,
+        "has_analysis": true,
+        "has_answer": false
+      }
+    },
+    {
+      "name": "workflow.step",
+      "payload": {
+        "agent": "supervisor",
+        "duration_seconds": 7.100010407157242e-06,
+        "status": "success"
+      }
+    },
+    {
+      "name": "writer.done",
+      "payload": {
+        "metadata": {
+          "input_tokens": 727,
+          "output_tokens": 243,
+          "cost_usd": 0.00025485
+        },
+        "answer_len": 1251
+      }
+    },
+    {
+      "name": "workflow.step",
+      "payload": {
+        "agent": "writer",
+        "duration_seconds": 0.0001269999920623377,
+        "status": "success"
+      }
+    },
+    {
+      "name": "critic.done",
+      "payload": {
+        "citation_coverage": 1.0,
+        "cited_count": 5,
+        "total_sources": 5
+      }
+    },
+    {
+      "name": "workflow.step",
+      "payload": {
+        "agent": "critic",
+        "duration_seconds": 6.19000056758523e-05,
+        "status": "success"
+      }
+    },
+    {
+      "name": "supervisor.route",
+      "payload": {
+        "next_route": "done",
+        "iteration": 4,
+        "has_sources": true,
+        "has_analysis": true,
+        "has_answer": true
+      }
+    },
+    {
+      "name": "workflow.step",
+      "payload": {
+        "agent": "supervisor",
+        "duration_seconds": 8.600007276982069e-06,
+        "status": "success"
+      }
+    }
+  ],
+  "agent_results_count": 4
+}
