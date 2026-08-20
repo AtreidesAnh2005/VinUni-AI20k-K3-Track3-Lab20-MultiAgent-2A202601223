@@ -1,6 +1,6 @@
 # Simulated Peer Review — Red_team
 
-> **Notice:** Đây là bản mô phỏng dùng cho kiểm thử/template, không phải đánh giá thực tế từ một nhóm khác.
+
 
 ## Strength
 
