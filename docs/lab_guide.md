@@ -115,3 +115,9 @@ Mỗi nhóm trả lời 2 câu:
 
 1. Case nào nên dùng multi-agent? Vì sao?
 2. Case nào không nên dùng multi-agent? Vì sao?
+
+### Câu trả lời Exit Ticket
+
+1. **Nên dùng multi-agent** cho các tác vụ nghiên cứu nhiều bước như tìm kiếm nhiều nguồn, đánh giá độ tin cậy, phân tích trade-off và viết báo cáo có citation. Việc tách Supervisor, Researcher, Analyst và Writer giúp mỗi agent tập trung vào một trách nhiệm, dễ trace và dễ kiểm soát lỗi.
+
+2. **Không nên dùng multi-agent** cho câu hỏi đơn giản, tác vụ single-turn hoặc yêu cầu latency/chi phí rất thấp. Single-agent thường đủ dùng, ít handoff hơn, nhanh hơn và tránh phát sinh token cost không cần thiết.

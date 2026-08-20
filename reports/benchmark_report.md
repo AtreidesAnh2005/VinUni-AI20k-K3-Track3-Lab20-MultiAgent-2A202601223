@@ -7,6 +7,13 @@
 | **Single-Agent Baseline** | 0.037 | $0.00031 | 7.0/10 | 100% | 0% | Routes: single_agent_baseline |
 | **Multi-Agent Workflow** | 0.003 | $0.00040 | 10.0/10 | 100% | 0% | Routes: researcher -> analyst -> writer -> done |
 
+## Benchmark Methodology
+
+- Query: `Research GraphRAG state-of-the-art`.
+- The checked-in sample uses the deterministic offline corpus and mock LLM fallback, so it is reproducible without API spend.
+- Latency is wall-clock time for one run and includes cold-start/corpus-loading effects; the 0.08x value should not be interpreted as a steady-state production latency claim.
+- Quality is the repository's automated 0-10 rubric proxy. A peer-review score can be added separately when another group reviews the report.
+
 ## 2. Comparative Analysis
 
 - **Latency**: multi-agent took 0.08x the baseline.
