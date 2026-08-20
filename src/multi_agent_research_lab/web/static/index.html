@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous Multi-Agent Research Lab - Interactive Demo</title>
+  <meta name="description" content="Production Multi-Agent Research & Benchmark Studio orchestrated via LangGraph, featuring Supervisor routing, Researcher retrieval, Analyst structuring, Writer synthesis, and Critic verification.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header / Branding -->
+    <header class="header">
+      <div class="brand-wrapper">
+        <div class="brand-icon">🔬</div>
+        <div>
+          <h1 class="brand-title">Autonomous Multi-Agent Research Lab</h1>
+          <p class="brand-subtitle">Orchestrated Autonomous Agents & Empirical Benchmarking Studio</p>
+        </div>
+      </div>
+      <div class="status-badges">
+        <span class="badge badge-success"><span class="dot"></span>LangGraph Engine Active</span>
+        <span class="badge badge-info">OpenAI GPT-4o-mini</span>
+      </div>
+    </header>
+
+    <!-- Query Control Center -->
+    <section class="control-card" aria-label="Research Query Controls">
+      <div class="query-input-group">
+        <div class="input-container">
+          <input 
+            type="text" 
+            id="query-input" 
+            class="search-input" 
+            placeholder="Enter a complex research topic (e.g. GraphRAG state-of-the-art architectures)..." 
+            value="Explain GraphRAG state-of-the-art architectures and trade-offs"
+          />
+        </div>
+        <button id="run-btn" class="run-btn" type="button">
+          <span>Run Research</span>
+          <span style="font-size: 18px;">⚡</span>
+        </button>
+      </div>
+
+      <!-- Quick Preset Chips -->
+      <div class="presets-container">
+        <span class="preset-label">Presets:</span>
+        <button class="preset-chip" type="button" data-query="Explain GraphRAG state-of-the-art architectures and trade-offs">GraphRAG Architectures</button>
+        <button class="preset-chip" type="button" data-query="Multi-Agent collaboration and orchestration patterns in production">Multi-Agent Patterns</button>
+        <button class="preset-chip" type="button" data-query="RAG vs Fine-tuning decision matrix for domain adaptation">RAG vs Fine-Tuning</button>
+        <button class="preset-chip" type="button" data-query="Production guardrails and error handling for autonomous LLM agents">Agent Guardrails</button>
+      </div>
+
+      <!-- Offline Benchmark Corpus Selector (30 Topics) -->
+      <div style="display: flex; align-items: center; gap: 12px; background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: var(--radius-sm); padding: 10px 14px;">
+        <span style="font-size: 13px; font-weight: 600; color: #A5B4FC; display: flex; align-items: center; gap: 6px;">
+          <span>📦</span>
+          <span>Offline Corpus v2 (30 Topics):</span>
+        </span>
+        <select id="corpus-select" class="custom-select" style="flex: 1; max-width: 600px;">
+          <option value="">-- Select from 30 benchmark corpus topics --</option>
+        </select>
+      </div>
+
+      <!-- Options Row -->
+      <div class="options-row">
+        <div class="options-group">
+          <div class="select-group">
+            <label for="mode-select">Execution Mode:</label>
+            <select id="mode-select" class="custom-select">
+              <option value="multi_agent">Multi-Agent Workflow (5 Agents)</option>
+              <option value="single_agent">Single-Agent Baseline (Direct 1-Turn)</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="audience-select">Audience:</label>
+            <select id="audience-select" class="custom-select">
+              <option value="general">General Technical</option>
+              <option value="engineering">Deep Engineering</option>
+              <option value="executive">Executive Summary</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="sources-select">Max Sources:</label>
+            <select id="sources-select" class="custom-select">
+              <option value="3">3 Sources</option>
+              <option value="5" selected>5 Sources</option>
+              <option value="8">8 Sources</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="toggle-group" for="mock-toggle">
+          <input type="checkbox" id="mock-toggle" class="toggle-checkbox" />
+          <span>Fast Offline Mock Mode</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Multi-Agent Visualizer Pipeline -->
+    <section class="pipeline-card" aria-label="Pipeline Visualizer">
+      <div class="pipeline-header">
+        <h2 class="pipeline-title">
+          <span>Agent Routing Pipeline</span>
+          <span style="font-size: 11px; background: rgba(99, 102, 241, 0.2); color: #818CF8; padding: 2px 8px; border-radius: 9999px;">LangGraph StateGraph</span>
+        </h2>
+      </div>
+
+      <div class="pipeline-nodes">
+        <div id="node-supervisor" class="node-card">
+          <div class="node-icon">🧭</div>
+          <div class="node-title">Supervisor</div>
+          <div class="node-desc">State routing & loop guardrails</div>
+          <span class="node-badge">Policy Router</span>
+        </div>
+
+        <div id="node-researcher" class="node-card">
+          <div class="node-icon">🔍</div>
+          <div class="node-title">Researcher</div>
+          <div class="node-desc">Web search & source retrieval</div>
+          <span class="node-badge">Retrieval</span>
+        </div>
+
+        <div id="node-analyst" class="node-card">
+          <div class="node-icon">📊</div>
+          <div class="node-title">Analyst</div>
+          <div class="node-desc">Claim extraction & trade-offs</div>
+          <span class="node-badge">Structuring</span>
+        </div>
+
+        <div id="node-writer" class="node-card">
+          <div class="node-icon">✍️</div>
+          <div class="node-title">Writer</div>
+          <div class="node-desc">Synthesized report with [1], [2]</div>
+          <span class="node-badge">Synthesis</span>
+        </div>
+
+        <div id="node-critic" class="node-card">
+          <div class="node-icon">🛡️</div>
+          <div class="node-title">Critic</div>
+          <div class="node-desc">Citation audit & quality check</div>
+          <span class="node-badge">Verification</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metric Stat Cards -->
+    <section class="stats-grid" aria-label="Execution Metrics">
+      <div class="stat-card">
+        <span class="stat-label">Execution Latency</span>
+        <span id="stat-latency" class="stat-val">--</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Estimated Cost</span>
+        <span id="stat-cost" class="stat-val">--</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Quality Score</span>
+        <span id="stat-quality" class="stat-val">--</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Citation Grounding</span>
+        <span id="stat-citations" class="stat-val">--</span>
+      </div>
+    </section>
+
+    <!-- Multi-Tab Result Section -->
+    <main class="content-card">
+      <nav class="tabs-nav" aria-label="Output Tabs">
+        <button class="tab-btn active" data-tab="tab-report" type="button">📄 Final Research Report</button>
+        <button class="tab-btn" data-tab="tab-sources" type="button">📚 Sources & Citations</button>
+        <button class="tab-btn" data-tab="tab-analysis" type="button">🔍 Analysis & Claims</button>
+        <button class="tab-btn" data-tab="tab-critic" type="button">⚖️ Critic Peer Review</button>
+        <button class="tab-btn" data-tab="tab-benchmark" type="button">📊 Benchmark Summary</button>
+      </nav>
+
+      <!-- Tab 1: Final Report -->
+      <div id="tab-report" class="tab-pane active">
+        <div id="report-content" class="markdown-body">
+          <div class="empty-state">
+            <div class="empty-icon">🚀</div>
+            <p>Enter a query above and click <strong>Run Research</strong> to generate an autonomous research report.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Sources & Citations -->
+      <div id="tab-sources" class="tab-pane">
+        <div id="sources-content">
+          <div class="empty-state">
+            <div class="empty-icon">🔎</div>
+            <p>Retrieved source documents and web snippets will appear here.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Analysis Notes -->
+      <div id="tab-analysis" class="tab-pane">
+        <div id="analysis-content">
+          <div class="empty-state">
+            <div class="empty-icon">📋</div>
+            <p>Intermediate technical claim synthesis from the Analyst agent will be listed here.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Critic Review -->
+      <div id="tab-critic" class="tab-pane">
+        <div id="critic-content">
+          <div class="empty-state">
+            <div class="empty-icon">🛡️</div>
+            <p>Peer review verification and citation grounding metrics will appear here.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Benchmark Report -->
+      <div id="tab-benchmark" class="tab-pane">
+        <div id="benchmark-content">
+          <div class="empty-state">
+            <div class="empty-icon">📈</div>
+            <p>Loading benchmark comparison report...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
