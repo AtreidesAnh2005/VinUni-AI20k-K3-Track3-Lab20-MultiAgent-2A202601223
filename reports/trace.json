@@ -23,21 +23,21 @@
       "name": "workflow.step",
       "payload": {
         "agent": "supervisor",
-        "duration_seconds": 4.8900008550845087e-05,
+        "duration_seconds": 4.0700004319660366e-05,
         "status": "success"
       }
     },
     {
       "name": "researcher.done",
       "payload": {
-        "num_sources": 5
+        "num_sources": 3
       }
     },
     {
       "name": "workflow.step",
       "payload": {
         "agent": "researcher",
-        "duration_seconds": 0.025584200004232116,
+        "duration_seconds": 0.0011717000015778467,
         "status": "success"
       }
     },
@@ -55,7 +55,7 @@
       "name": "workflow.step",
       "payload": {
         "agent": "supervisor",
-        "duration_seconds": 2.339998900424689e-05,
+        "duration_seconds": 1.2899996363557875e-05,
         "status": "success"
       }
     },
@@ -63,18 +63,18 @@
       "name": "analyst.done",
       "payload": {
         "metadata": {
-          "input_tokens": 431,
-          "output_tokens": 135,
-          "cost_usd": 0.00014565
+          "input_tokens": 280,
+          "output_tokens": 714,
+          "cost_usd": 0.0004704
         },
-        "notes_len": 543
+        "notes_len": 3684
       }
     },
     {
       "name": "workflow.step",
       "payload": {
         "agent": "analyst",
-        "duration_seconds": 3.880000440403819e-05,
+        "duration_seconds": 10.639454599993769,
         "status": "success"
       }
     },
@@ -92,7 +92,7 @@
       "name": "workflow.step",
       "payload": {
         "agent": "supervisor",
-        "duration_seconds": 7.100010407157242e-06,
+        "duration_seconds": 1.789999078027904e-05,
         "status": "success"
       }
     },
@@ -100,18 +100,18 @@
       "name": "writer.done",
       "payload": {
         "metadata": {
-          "input_tokens": 727,
-          "output_tokens": 243,
-          "cost_usd": 0.00025485
+          "input_tokens": 1092,
+          "output_tokens": 987,
+          "cost_usd": 0.0007559999999999998
         },
-        "answer_len": 1251
+        "answer_len": 5174
       }
     },
     {
       "name": "workflow.step",
       "payload": {
         "agent": "writer",
-        "duration_seconds": 0.0001269999920623377,
+        "duration_seconds": 12.671318699998665,
         "status": "success"
       }
     },
@@ -119,15 +119,15 @@
       "name": "critic.done",
       "payload": {
         "citation_coverage": 1.0,
-        "cited_count": 5,
-        "total_sources": 5
+        "cited_count": 3,
+        "total_sources": 3
       }
     },
     {
       "name": "workflow.step",
       "payload": {
         "agent": "critic",
-        "duration_seconds": 6.19000056758523e-05,
+        "duration_seconds": 5.030140900009428,
         "status": "success"
       }
     },
@@ -145,7 +145,7 @@
       "name": "workflow.step",
       "payload": {
         "agent": "supervisor",
-        "duration_seconds": 8.600007276982069e-06,
+        "duration_seconds": 3.9699996705166996e-05,
         "status": "success"
       }
     }
